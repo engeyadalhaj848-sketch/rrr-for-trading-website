@@ -47,6 +47,7 @@
       </nav>
       <div class="sidebar-footer">
         <a href="index.html" target="_blank">عرض الموقع</a>
+        <button id="change-password-button">تعيين كلمة المرور</button>
         <button id="logout-button">تسجيل الخروج</button>
       </div>
     </aside>
@@ -100,6 +101,18 @@
       <div class="upload-progress" id="upload-progress" hidden><span></span><b>جارٍ رفع الملف...</b></div>
       <p class="form-message" id="record-message" role="status"></p>
       <div class="dialog-actions"><button class="secondary-button" value="cancel">إلغاء</button><button class="primary-button" id="save-record" type="submit" value="default">حفظ</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="password-dialog">
+    <form class="dialog-card" id="password-form">
+      <div class="dialog-head"><div><span class="eyebrow">أمان الحساب</span><h2>تعيين كلمة مرور جديدة</h2></div><button type="button" id="password-close" aria-label="إغلاق">×</button></div>
+      <div class="form-grid">
+        <label class="wide">كلمة المرور الجديدة<input name="password" type="password" autocomplete="new-password" minlength="8" required></label>
+        <label class="wide">تأكيد كلمة المرور<input name="confirm_password" type="password" autocomplete="new-password" minlength="8" required></label>
+      </div>
+      <p class="form-message" id="password-message" role="status"></p>
+      <div class="dialog-actions"><button class="secondary-button" type="button" id="password-cancel">إلغاء</button><button class="primary-button" type="submit">حفظ كلمة المرور</button></div>
     </form>
   </dialog>
 

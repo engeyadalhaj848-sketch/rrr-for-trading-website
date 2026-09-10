@@ -109,6 +109,27 @@ $('#logout-button').addEventListener('click', async () => {
   location.reload();
 });
 
+$('#change-password-button').addEventListener('click', () => {
+  $('#password-form').reset();
+  setMessage($('#password-message'), '');
+  $('#password-dialog').showModal();
+});
+$('#password-close').addEventListener('click', () => $('#password-dialog').close());
+$('#password-cancel').addEventListener('click', () => $('#password-dialog').close());
+$('#password-form').addEventListener('submit', async event => {
+  event.preventDefault();
+  const form = new FormData(event.currentTarget);
+  const password = form.get('password');
+  if (password !== form.get('confirm_password')) return setMessage($('#password-message'), 'كلمتا المرور غير متطابقتين.');
+  const button = $('button[type="submit"]', event.currentTarget);
+  button.disabled = true;
+  const { error } = await client.auth.updateUser({ password });
+  button.disabled = false;
+  if (error) return setMessage($('#password-message'), 'تعذر حفظ كلمة المرور. استخدم 8 أحرف أو أكثر.');
+  $('#password-dialog').close();
+  notify('تم تعيين كلمة المرور بنجاح.');
+});
+
 $('#mobile-menu').addEventListener('click', () => $('.sidebar').classList.add('open'));
 $('#mobile-close').addEventListener('click', () => $('.sidebar').classList.remove('open'));
 
