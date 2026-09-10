@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171717">
+  <meta name="robots" content="noindex,nofollow">
+  <title>لوحة الإدارة | شركة آر آر آر للتجارة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <section class="login-screen" id="login-screen">
+    <div class="login-card">
+      <a class="admin-brand" href="index.html"><strong>R R R</strong><span>للتجارة</span></a>
+      <div>
+        <span class="eyebrow">لوحة إدارة المحتوى</span>
+        <h1>مرحبًا بعودتك</h1>
+        <p>سجّل الدخول لإدارة المنتجات والموردين والعملاء والمشاريع وملف الشركة.</p>
+      </div>
+      <form id="login-form">
+        <label>البريد الإلكتروني<input name="email" type="email" autocomplete="username" required placeholder="name@example.com"></label>
+        <label>كلمة المرور<input name="password" type="password" autocomplete="current-password" required placeholder="••••••••"></label>
+        <button class="primary-button" type="submit">دخول لوحة الإدارة</button>
+        <p class="form-message" id="login-message" role="status"></p>
+      </form>
+      <a class="back-link" href="index.html">العودة إلى الموقع ←</a>
+    </div>
+  </section>
+
+  <div class="admin-shell" id="admin-shell" hidden>
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <a class="admin-brand" href="index.html"><strong>R R R</strong><span>لوحة الإدارة</span></a>
+        <button class="mobile-close" id="mobile-close" aria-label="إغلاق القائمة">×</button>
+      </div>
+      <nav id="admin-nav" aria-label="أقسام لوحة الإدارة">
+        <button class="active" data-view="dashboard"><span>⌂</span>الرئيسية</button>
+        <button data-view="products"><span>▦</span>المنتجات</button>
+        <button data-view="categories"><span>▤</span>أقسام المنتجات</button>
+        <button data-view="projects"><span>◇</span>مشاريعنا</button>
+        <button data-view="clients"><span>◎</span>عملاؤنا</button>
+        <button data-view="suppliers"><span>◈</span>الموردون</button>
+        <button data-view="profile"><span>▣</span>الملف التعريفي</button>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="index.html" target="_blank">عرض الموقع</a>
+        <button id="logout-button">تسجيل الخروج</button>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <button class="mobile-menu" id="mobile-menu" aria-label="فتح القائمة">☰</button>
+        <div><span class="eyebrow">R R R CMS</span><h1 id="view-title">نظرة عامة</h1></div>
+        <div class="admin-user"><span id="admin-email"></span><i></i></div>
+      </header>
+
+      <section class="view active" id="view-dashboard">
+        <div class="welcome-panel"><div><span>إدارة الموقع</span><h2>كل محتوى الشركة في مكان واحد.</h2><p>أضف المنتجات وملفاتها الفنية، حدّث صور المشاريع، وأدر بيانات العملاء والموردين.</p></div><button class="primary-button" data-quick-add="products">إضافة منتج جديد</button></div>
+        <div class="stats-grid" id="stats-grid"></div>
+        <div class="dashboard-grid">
+          <article class="panel"><div class="panel-title"><h3>إجراءات سريعة</h3></div><div class="quick-grid"><button data-quick-add="products">＋ منتج</button><button data-quick-add="projects">＋ مشروع</button><button data-quick-add="clients">＋ عميل</button><button data-quick-add="suppliers">＋ مورد</button></div></article>
+          <article class="panel"><div class="panel-title"><h3>حالة الموقع</h3></div><ul class="status-list"><li><i></i>قاعدة البيانات متصلة</li><li><i></i>رفع الصور وPDF مفعّل</li><li><i></i>صلاحيات الإدارة محمية</li></ul></article>
+        </div>
+      </section>
+
+      <section class="view" id="view-list">
+        <div class="toolbar"><div><p id="view-description"></p></div><button class="primary-button" id="add-button">＋ إضافة جديد</button></div>
+        <div class="panel table-panel"><div class="table-wrap"><table><thead id="records-head"></thead><tbody id="records-body"></tbody></table></div><div class="empty-state" id="empty-state" hidden><strong>لا توجد بيانات بعد</strong><p>ابدأ بإضافة أول عنصر ليظهر في الموقع.</p></div></div>
+      </section>
+
+      <section class="view" id="view-profile">
+        <form class="profile-form panel" id="profile-form">
+          <div class="panel-title"><div><h3>بيانات الشركة</h3><p>تظهر هذه المعلومات في الملف التعريفي وصفحات التواصل.</p></div><button class="primary-button" type="submit">حفظ التعديلات</button></div>
+          <div class="form-grid">
+            <label>اسم الشركة<input name="company_name" required></label>
+            <label>العنوان الرئيسي<input name="headline"></label>
+            <label class="wide">نبذة عن الشركة<textarea name="about" rows="5"></textarea></label>
+            <label>الرؤية<textarea name="vision" rows="4"></textarea></label>
+            <label>الرسالة<textarea name="mission" rows="4"></textarea></label>
+            <label class="wide">القيم<textarea name="values_text" rows="3"></textarea></label>
+            <label>رقم الجوال<input name="phone" dir="ltr"></label>
+            <label>رقم واتساب<input name="whatsapp" dir="ltr"></label>
+            <label>البريد الإلكتروني<input name="email" type="email" dir="ltr"></label>
+            <label>العنوان<input name="address"></label>
+          </div>
+          <p class="form-message" id="profile-message" role="status"></p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="record-dialog">
+    <form method="dialog" class="dialog-card" id="record-form">
+      <div class="dialog-head"><div><span class="eyebrow" id="dialog-eyebrow"></span><h2 id="dialog-title"></h2></div><button value="cancel" aria-label="إغلاق">×</button></div>
+      <div class="form-grid" id="record-fields"></div>
+      <div class="upload-progress" id="upload-progress" hidden><span></span><b>جارٍ رفع الملف...</b></div>
+      <p class="form-message" id="record-message" role="status"></p>
+      <div class="dialog-actions"><button class="secondary-button" value="cancel">إلغاء</button><button class="primary-button" id="save-record" type="submit" value="default">حفظ</button></div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

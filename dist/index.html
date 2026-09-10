@@ -95,7 +95,7 @@
           <h2>ما الذي نوفره لمشروعك؟</h2>
           <p>فئات أساسية من مواد التشطيب، مع إضافة العلامات والمقاسات المعتمدة عند توفر قائمة المنتجات النهائية.</p>
         </div>
-        <div class="category-grid">
+        <div class="category-grid" id="category-grid">
           <article class="category-card">
             <img src="assets/rrr-hero.webp" alt="ألواح جبس بورد وقطاعات معدنية">
             <div><span>01</span><h3>الجبس بورد وملحقاته</h3><p>ألواح وحلول مساندة لتطبيقات القواطع والأسقف والتشطيبات الداخلية.</p><a href="#quote">اطلب التفاصيل ←</a></div>
@@ -109,6 +109,13 @@
             <div><span>03</span><h3>مواد التشطيب</h3><p>منتجات مساندة تساعد على استكمال احتياجات المشروع ضمن طلب واحد منظم.</p><a href="#quote">اطلب التفاصيل ←</a></div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="section cms-catalog" id="catalog" hidden>
+      <div class="container">
+        <div class="section-title center"><span>كتالوج المنتجات</span><h2>منتجات ومواصفات تساعدك على الاختيار.</h2><p>استعرض المنتجات المتاحة وحمّل ملفات البيانات الفنية مباشرة.</p></div>
+        <div class="cms-products-grid" id="cms-products-grid"></div>
       </div>
     </section>
 
@@ -182,6 +189,13 @@
       </div>
     </section>
 
+    <section class="section cms-projects-section" id="projects-cms" hidden>
+      <div class="container">
+        <div class="section-title center"><span>مشاريعنا</span><h2>أعمال وتجارب توريد نفخر بها.</h2></div>
+        <div class="cms-projects-grid" id="cms-projects-grid"></div>
+      </div>
+    </section>
+
     <section class="quote section" id="quote">
       <div class="container quote-card">
         <div class="quote-intro">
@@ -221,6 +235,6 @@
   </footer>
 
   <a class="floating-whatsapp" href="https://wa.me/966554610355" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب">واتساب</a>
-  <script src="app.js"></script>
+  <script src="app.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script type="module" src="cms.js"></script>
 </body>
 </html>
